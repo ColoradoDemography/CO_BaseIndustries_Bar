@@ -1,4 +1,24 @@
 var selectElem = document.getElementById('sel');
+var srcCanvas = document.getElementById('canvas');
+
+//function to create a white background for the canvas and convert to a png
+function dlCanvas(){
+  destinationCanvas = document.createElement("canvas");
+  destinationCanvas.width = srcCanvas.width;
+  destinationCanvas.height = srcCanvas.height;
+
+  destCtx = destinationCanvas.getContext('2d');
+
+  //create a rectangle with the desired color
+  destCtx.fillStyle = "#FFFFFF";
+  destCtx.fillRect(0,0,srcCanvas.width,srcCanvas.height);
+
+  //draw the original canvas onto the destination canvas
+  destCtx.drawImage(srcCanvas, 0, 0);
+  var dt = destinationCanvas.toDataURL('image/png');
+  this.href = dt.replace(/^data:image\/[^;]/, 'data:application/octet-stream');
+};
+downloadPNG.addEventListener('click', dlCanvas, false);
 
 //change these to reflect Alamosa when making the annual update
 var startlabels = ['Agriculture', 'Government', 'Manufacturing', 'Other Household', 'Regional Service', 'Retiree', 'Tourism', 'Transfer Payment'];

@@ -3,6 +3,12 @@
 
 <head>
 	<title>Horizontal Bar Chart</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+	<script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+	 <script src="https://cdn.plot.ly/plotly-2.24.1.min.js" charset="utf-8"></script>
+	 <link type="text/css" rel="stylesheet" href="./css/common.css" async="">
 	<script src="js/Chart.js"></script>
 	<script src="js/utils.js"></script>
 	<script src="js/saveSvgAsPng.js"></script>
@@ -25,102 +31,130 @@
 </head>
 
 <body>
-	<div id="summary">
-    	<a href="https://drive.google.com/uc?export=download&id=1SNM-QZAL9mVf3vXfcEtXgtqfmbSKe4Hs">Base Analysis Summary</a>
-    </div>
-	<div class="ui-widget">
-	  <br />
-	  <select id="sel">
-	    <option value="003" >Alamosa</option>
-	    <option value="007" >Archuleta</option>
-	    <option value="009" >Baca</option>
-	    <option value="011" >Bent</option>
-	    <option value="015" >Chaffee</option>
-	    <option value="017" >Cheyenne</option>
-	    <option value="019" >Clear Creek</option>
-	    <option value="021" >Conejos</option>
-	    <option value="023" >Costilla</option>
-	    <option value="025" >Crowley</option>
-	    <option value="027" >Custer</option>
-	    <option value="029" >Delta</option>
-	    <option value="033" >Dolores</option>
-	    <option value="037" >Eagle</option>
-	    <option value="039" >Elbert</option>
-	    <option value="041" >El Paso</option>
-	    <option value="043" >Fremont</option>
-	    <option value="045" >Garfield</option>
-	    <option value="047" >Gilpin</option>
-	    <option value="049" >Grand</option>
-	    <option value="051" >Gunnison</option>
-	    <option value="053" >Hinsdale</option>
-	    <option value="055" >Huerfano</option>
-	    <option value="057" >Jackson</option>
-	    <option value="061" >Kiowa</option>
-	    <option value="063" >Kit Carson</option>
-	    <option value="065" >Lake</option>
-	    <option value="067" >La Plata</option>
-	    <option value="069" >Larimer</option>
-	    <option value="071" >Las Animas</option>
-	    <option value="073" >Lincoln</option>
-	    <option value="075" >Logan</option>
-	    <option value="077" >Mesa</option>
-	    <option value="079" >Mineral</option>
-	    <option value="081" >Moffat</option>
-	    <option value="083" >Montezuma</option>
-	    <option value="085" >Montrose</option>
-	    <option value="087" >Morgan</option>
-	    <option value="089" >Otero</option>
-	    <option value="091" >Ouray</option>
-	    <option value="093" >Park</option>
-	    <option value="095" >Phillips</option>
-	    <option value="097" >Pitkin</option>
-	    <option value="099" >Prowers</option>
-	    <option value="101" >Pueblo</option>
-	    <option value="103" >Rio Blanco</option>
-	    <option value="105" >Rio Grande</option>
-	    <option value="107" >Routt</option>
-	    <option value="109" >Saguache</option>
-	    <option value="111" >San Juan</option>
-	    <option value="113" >San Miguel</option>
-	    <option value="115" >Sedgwick</option>
-	    <option value="117" >Summit</option>
-	    <option value="119" >Teller</option>
-	    <option value="121" >Washington</option>
-	    <option value="123" >Weld</option>
-	    <option value="125" >Yuma</option>
-	    <option value="501" >Planning Region 1</option>
-	    <option value="502" >Planning Region 2</option>
-	    <option value="504" >Planning Region 4</option>
-	    <option value="505" >Planning Region 5</option>
-	    <option value="506" >Planning Region 6</option>
-	    <option value="507" >Planning Region 7</option>
-	    <option value="508" >Planning Region 8</option>
-	    <option value="509" >Planning Region 9</option>
-	    <option value="510" >Planning Region 10</option>
-	    <option value="511" >Planning Region 11</option>
-	    <option value="512" >Planning Region 12</option>
-	    <option value="513" >Planning Region 13</option>
-	    <option value="514" >Planning Region 14</option>
-	    <option value="515" >Central Mountains</option>
-	    <option value="516" >Eastern Plains</option>
-	    <option value="518" >San Luis Valley</option>
-	    <option value="519" >Western Slope</option>
-	    <option value="521" >Denver-Boulder MSA</option>
-	    
-	  </select>
+	<a class="skip-main" href="#main">Skip to main content</a>
+	
+	<div>
+		<a href="https://cdola.colorado.gov/"><img class="logoSDO" src="./img/SDO-1600x400.jpg" alt="Department of Local Affairs Homepage"></a>
 	</div>
+		<div w3-include-html="./html/navheader.html"></div>
+	<!-- First Grid, linked images -->
+	<div class="grid-container2">
+		<div class="grid-item panel2_1_1">
+			<div w3-include-html="./html/sdotitle.html"></div>
+		</div>
+		<div class="grid-item app-panel_2_1" id="leftHand">
+			<div w3-include-html="./html/left_hand_index.html"></div>
+		</div>
+		<div class="grid-item app-panel_2_2" id="main" tabindex="-1"> 
+			<!-- <div id="summary">
+				<a href="https://drive.google.com/uc?export=download&id=1SNM-QZAL9mVf3vXfcEtXgtqfmbSKe4Hs">Base Analysis Summary</a>
+			</div> -->
+			<div class="ui-widget">
+			<br />
+			<select id="sel">
+				<option value="003" >Alamosa</option>
+				<option value="007" >Archuleta</option>
+				<option value="009" >Baca</option>
+				<option value="011" >Bent</option>
+				<option value="015" >Chaffee</option>
+				<option value="017" >Cheyenne</option>
+				<option value="019" >Clear Creek</option>
+				<option value="021" >Conejos</option>
+				<option value="023" >Costilla</option>
+				<option value="025" >Crowley</option>
+				<option value="027" >Custer</option>
+				<option value="029" >Delta</option>
+				<option value="033" >Dolores</option>
+				<option value="037" >Eagle</option>
+				<option value="039" >Elbert</option>
+				<option value="041" >El Paso</option>
+				<option value="043" >Fremont</option>
+				<option value="045" >Garfield</option>
+				<option value="047" >Gilpin</option>
+				<option value="049" >Grand</option>
+				<option value="051" >Gunnison</option>
+				<option value="053" >Hinsdale</option>
+				<option value="055" >Huerfano</option>
+				<option value="057" >Jackson</option>
+				<option value="061" >Kiowa</option>
+				<option value="063" >Kit Carson</option>
+				<option value="065" >Lake</option>
+				<option value="067" >La Plata</option>
+				<option value="069" >Larimer</option>
+				<option value="071" >Las Animas</option>
+				<option value="073" >Lincoln</option>
+				<option value="075" >Logan</option>
+				<option value="077" >Mesa</option>
+				<option value="079" >Mineral</option>
+				<option value="081" >Moffat</option>
+				<option value="083" >Montezuma</option>
+				<option value="085" >Montrose</option>
+				<option value="087" >Morgan</option>
+				<option value="089" >Otero</option>
+				<option value="091" >Ouray</option>
+				<option value="093" >Park</option>
+				<option value="095" >Phillips</option>
+				<option value="097" >Pitkin</option>
+				<option value="099" >Prowers</option>
+				<option value="101" >Pueblo</option>
+				<option value="103" >Rio Blanco</option>
+				<option value="105" >Rio Grande</option>
+				<option value="107" >Routt</option>
+				<option value="109" >Saguache</option>
+				<option value="111" >San Juan</option>
+				<option value="113" >San Miguel</option>
+				<option value="115" >Sedgwick</option>
+				<option value="117" >Summit</option>
+				<option value="119" >Teller</option>
+				<option value="121" >Washington</option>
+				<option value="123" >Weld</option>
+				<option value="125" >Yuma</option>
+				<option value="501" >Planning Region 1</option>
+				<option value="502" >Planning Region 2</option>
+				<option value="504" >Planning Region 4</option>
+				<option value="505" >Planning Region 5</option>
+				<option value="506" >Planning Region 6</option>
+				<option value="507" >Planning Region 7</option>
+				<option value="508" >Planning Region 8</option>
+				<option value="509" >Planning Region 9</option>
+				<option value="510" >Planning Region 10</option>
+				<option value="511" >Planning Region 11</option>
+				<option value="512" >Planning Region 12</option>
+				<option value="513" >Planning Region 13</option>
+				<option value="514" >Planning Region 14</option>
+				<option value="515" >Central Mountains</option>
+				<option value="516" >Eastern Plains</option>
+				<option value="518" >San Luis Valley</option>
+				<option value="519" >Western Slope</option>
+				<option value="521" >Denver-Boulder MSA</option>
+				
+			</select>
+			
 
-	<div id="container" style="width: 100%; height: 100%" >
-		<canvas id="canvas" width="800" height="400">
-            <p>Your Browser Does Not Support Canvas</p>
-        </canvas>
-	</div>
-	<div id="other">
-		<p></p> <!-- change based on initial county -->
+			<div class="dropdown AClass">
+				<button class="dropbtn"  id="estimate"><i class="fas fas fa-download fa-2x" style='color: black;'></i></button>
+				<div class="dropdown-content">
+				  <ul class='dd-list'>
+					<li><a href='https://drive.google.com/uc?export=download&id=1SNM-QZAL9mVf3vXfcEtXgtqfmbSKe4Hs' id='est_csv'>Download the Data</a></li>
+					<li><a href='#' id='downloadPNG' download="Change in Births by Age.png">Download Image (PNG)</a></li>
+				  </ul>
+				</div>
+			</div>
+		</div>
+			<div id="container" style="width: 100%; height: 100%" >
+				<canvas id="canvas" width="800" height="400">
+					<p>Your Browser Does Not Support Canvas</p>
+				</canvas>
+			</div>
+			<div id="other">
+				<p></p> <!-- change based on initial county -->
+			</div>
+		</div>
 	</div>
 	<!--<div id="exportdiv">-->
  <!--       <button type="button" id="t_download" class="btn" onclick="saveSvgAsPng(document.getElementsByTagName('ctx')[0], 'diagram.png');" tabindex="8" accesskey="i">Download PNG</button>-->
  <!--   </div>-->
+ 	<script>includeHTML();</script>
 	<script src="js/app2.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 
