@@ -358,7 +358,7 @@ window.onload = function() {
 			},
 			title: {
 				display: true,
-				text: 'Alamosa Base Industries, 2021'
+				text: 'Alamosa Base Industries, 2022'
 			}
 		}
 	});
