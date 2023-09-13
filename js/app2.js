@@ -36,7 +36,7 @@ selectElem.addEventListener('change', function() {
     var minval=0.01;
     var otheremp=0;
     var othertext = "*Other includes: ";
-    window.myHorizontalBar.options.title.text = selectElem.options[selectElem.selectedIndex].text + " Base Industries, 2022";
+    window.myHorizontalBar.options.plugins.title.text = selectElem.options[selectElem.selectedIndex].text + " Base Industries, 2022";
     horizontalBarChartData.labels = [];
     dataset.backgroundColor = [];
     dataset.data = [];
@@ -235,14 +235,16 @@ var horizontalBarChartData = {
 		
 window.onload = function() {
 	var ctx = document.getElementById('canvas').getContext('2d');
+  const date = d3.timeFormat("%B %d, %Y");
 
 	window.myHorizontalBar = new Chart(ctx, {
-		type: 'horizontalBar',
+		type: 'bar',
 		data: horizontalBarChartData,
 		options: {
 			// Elements options apply to all of the options unless overridden in a dataset
 			// In this case, we are setting the border of each horizontal bar to be 2px wide
 
+      indexAxis: 'y',
 			tooltips: {
 			  callbacks: {
 			    label: function(tooltipItem, data) {
@@ -330,21 +332,21 @@ window.onload = function() {
 			  }
 			},  
 			scales: {
-			  yAxes: [{
+			  y: {
 			    barPercentage: 1,
 			    categoryPercentage: 0.5
-			  }],
-			  xAxes: [{
+			  },
+			  x: {
 			    ticks: {
 			      callback: function(value, index, values) {
 			        return commafy(value);
 			      }
 			    },
-			    scaleLabel: {
+			    title: {
 			      display: true,
-			      labelString: 'Employees'
+			      text: 'Employees'
 			    }
-			  }]
+			  }
 			},
 			elements: {
 				rectangle: {
@@ -352,15 +354,25 @@ window.onload = function() {
 				}
 			},
 			responsive: false,
-			legend: {
-				display: false,
-				position: 'right',
-			},
-			title: {
-				display: true,
-				text: 'Alamosa Base Industries, 2022'
-			}
-		}
+      plugins:{
+        legend: {
+          display: false,
+          position: 'right',
+        },
+        title: {
+          display: true,
+          text: 'Alamosa Base Industries, 2022'
+        },
+        subtile: {
+          display: true,
+          text: 'US Bureau of Labor Statistics QCEW, Visualization by Colorado State Demography Office, '+date(new Date),
+          position: 'bottom',
+          font: {
+            size: 10
+          }
+        }
+      }		
+    }
 	});
 			
 };
