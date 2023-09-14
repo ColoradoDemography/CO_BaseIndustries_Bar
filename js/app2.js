@@ -363,9 +363,9 @@ window.onload = function() {
           display: true,
           text: 'Alamosa Base Industries, 2022'
         },
-        subtile: {
+        subtitle: {
           display: true,
-          text: 'US Bureau of Labor Statistics QCEW, Visualization by Colorado State Demography Office, '+date(new Date),
+          text: 'US Bureau of Labor Statistics QCEW, Visualization by Colorado State Demography Office. Print date: '+date(new Date),
           position: 'bottom',
           font: {
             size: 10
