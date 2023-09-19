@@ -1,5 +1,6 @@
 var selectElem = document.getElementById('sel');
 var srcCanvas = document.getElementById('canvas');
+Chart.defaults.color = '#000';
 
 //function to create a white background for the canvas and convert to a png
 function dlCanvas(){
