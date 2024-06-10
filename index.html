@@ -52,7 +52,8 @@
 		
 			<p>
 				You can hover over specific bars graph to view the data for that specific point. <br>
-				Click on the download icon on the top right of the chart to download the chart and the underlying data.
+				Click on the download icon on the top right of the chart to download the chart and the underlying data.<br>
+				See below the chart for descriptions of the categories.
 				</p>
 				<p>
 				<b><i>This data visualization can only be viewed on a tablet or desktop.</i></b>
@@ -162,15 +163,15 @@
 				<div class="dropdown AClass">
 				<button class="dropbtn"  id="estimate"><i class="fas fas fa-download fa-2x" style='color: black;'></i></button>
 				<div class="dropdown-content">
-				<ul class='dd-list'>
-					<li><a href='https://drive.google.com/uc?export=download&id=1SNM-QZAL9mVf3vXfcEtXgtqfmbSKe4Hs' id='est_csv'>Download the Data</a></li>
-					<li><a href='#' id='downloadPNG' download="Base Industries.png">Download Image (PNG)</a></li>
-				</ul>
-			</div>
+					<ul class='dd-list'>
+						<li><a href='https://drive.google.com/uc?export=download&id=1SNM-QZAL9mVf3vXfcEtXgtqfmbSKe4Hs' id='est_csv'>Download the Data</a></li>
+						<li><a href='#' id='downloadPNG' download="Base Industries.png">Download Image (PNG)</a></li>
+					</ul>
+				</div>
 		</div>
 			</td>
 		</tr>
-	</table>
+			</table>
 			<div id="container" style="width: 100%; height: 100%" >
 				<canvas id="canvas" width="1000" height="500">
 					<p>Your Browser Does Not Support Canvas</p>
@@ -179,6 +180,16 @@
 			<div id="other">
 				<p></p> <!-- change based on initial county -->
 			</div>
+		</div>
+		<div class="grid-item app-panel_3_2"> 
+			<p><b>Agriculture:</b> Jobs in agricultural production, inputs, processing, and related activities, as well as jobs supported by the agriculture industry.</p>
+			<p><b>Government:</b> Jobs in federal and state government, including higher education and military, along with jobs supported by government employment.</p>
+			<p><b>Manufacturing:</b> Jobs in manufacturing establishments and additional jobs supported by manufacturing activities.</p>
+			<p><b>Other Household Income:</b> Jobs providing local services and supported by resident spending of unearned income from dividends, interest, and rents.</p>
+			<p><b>Regional Service:</b> Jobs in construction, communications, trade & transportation, professional & business services, finance & insurance, private education & healthcare that serve a multi-county region or the nation, including jobs supported by these industries.</p>
+			<p><b>Retirees:</b> Jobs providing local services to retirees and supported by retiree spending from sources like Social Security, pensions, and investment income.</p>
+			<p><b>Tourism:</b> Jobs at resorts, tourist attractions, lodging, restaurants, retail, entertainment venues, and transportation services related to tourism, as well as additional jobs supported by tourist spending.</p>
+			<p><b>Transfer Payments:</b> Jobs providing services to recipients of public assistance programs and supported by their spending of transfer payment income.</p>
 		</div>
 	</div>
 	<!--<div id="exportdiv">-->
