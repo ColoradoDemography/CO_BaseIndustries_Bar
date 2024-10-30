@@ -24,7 +24,7 @@ downloadPNG.addEventListener('click', dlCanvas, false);
 //change these to reflect Alamosa when making the annual update
 var startlabels = ['Agriculture', 'Government', 'Manufacturing', 'Other Household', 'Regional Service', 'Retiree', 'Tourism', 'Transfer Payment'];
 var startcolors = ["#be66a2", "#65a620", "#7b6888", "#546e91", "#bca44a", "#5b388f", "#e98125", "#961a1a"];
-var startdata = [855,1417,127,143,2026,778,789,512]; //Load Alamosa County manually for now
+var startdata = [853,1435,121,107,2055,607,839,540]; //Load Alamosa County manually for now
 
 selectElem.addEventListener('change', function() {
   horizontalBarChartData.datasets.forEach(function(dataset) {
@@ -37,7 +37,7 @@ selectElem.addEventListener('change', function() {
     var minval=0.01;
     var otheremp=0;
     var othertext = "*Other includes: ";
-    window.myHorizontalBar.options.plugins.title.text = selectElem.options[selectElem.selectedIndex].text + " Base Industries, 2022";
+    window.myHorizontalBar.options.plugins.title.text = selectElem.options[selectElem.selectedIndex].text + " Base Industries, 2023";
     horizontalBarChartData.labels = [];
     dataset.backgroundColor = [];
     dataset.data = [];
@@ -362,7 +362,7 @@ window.onload = function() {
         },
         title: {
           display: true,
-          text: 'Alamosa Base Industries, 2022'
+          text: 'Alamosa Base Industries, 2023'
         },
         subtitle: {
           display: true,
